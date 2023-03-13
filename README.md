@@ -1,4 +1,4 @@
-# Users Microservice
+# Order Microservice
 ## Setup without docker
 Create a python virtual environment in the project directory:
 ```shell
