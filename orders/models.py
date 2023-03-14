@@ -6,7 +6,9 @@ class Order(models.Model):
     status = models.CharField(choices=(
         ('completed', 'completed'),
         ('canceled', 'canceled'),
-    ))
+    ),
+        max_length=20,
+    )
     date = models.DateTimeField(auto_now_add=True)
     total = models.FloatField()
 
@@ -18,7 +20,8 @@ class Cart(models.Model):
         choices=(
             ('active', 'active'),
             ('ordered', 'ordered'),
-        )
+        ),
+        max_length=20,
     )
 
 
