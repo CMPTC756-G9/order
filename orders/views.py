@@ -17,3 +17,8 @@ class OrderViewSet(ReadOnlyModelViewSet):
 class CartViewSet(ReadOnlyModelViewSet):
     queryset = Cart.objects.all()
     serializer_class = CartSerializer
+
+    def get_queryset(self):
+        username = self.kwargs.get('username')
+        user_id = requests.get('xxx'.format(username)).json()['id']
+        return Cart.objects.filter(user_id=user_id)
