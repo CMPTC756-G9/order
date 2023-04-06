@@ -9,14 +9,26 @@ class OrderSerializer(serializers.ModelSerializer):
         fields = '__all__'
 
 
-class CartSerializer(serializers.ModelSerializer):
-    class Meta:
-        model = Cart
-        fields = '__all__'
-
-
 class CartItemSerializer(serializers.ModelSerializer):
     class Meta:
         model = CartItem
         fields = '__all__'
 
+
+class CartSerializer(serializers.ModelSerializer):
+    items = CartItemSerializer(many=True, read_only=True, source='cartitem_set')
+
+    class Meta:
+        model = Cart
+        fields = (
+            'id',
+            'user_id',
+            'order',
+            'status',
+            'items',
+        )
+
+
+class AddItemSerializer(serializers.Serializer):
+    product_id = serializers.IntegerField()
+    quantity = serializers.IntegerField()

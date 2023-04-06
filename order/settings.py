@@ -83,9 +83,9 @@ WSGI_APPLICATION = 'order.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': os.environ.get('DB_NAME', ''),
-        'USER': os.environ.get('DB_USER', ''),
-        'PASSWORD': os.environ.get('DB_PASS', ''),
+        'NAME': os.environ.get('DB_NAME', 'users'),
+        'USER': os.environ.get('DB_USER', 'nima'),
+        'PASSWORD': os.environ.get('DB_PASS', '123'),
         'HOST': os.environ.get('DB_HOST', 'localhost'),
         'PORT': os.environ.get('DB_PORT', '5432'),
     }
